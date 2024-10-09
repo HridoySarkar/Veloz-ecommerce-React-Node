@@ -14,12 +14,17 @@ Veloz is an innovative eCommerce platform that allows users to browse and purcha
 
 - **Frontend**: 
   - React
+  - React Dom
   - Redux Toolkit
   - React Router
+  - Babel
 
 - **Backend**: 
   - Fake Store API (for product data)
   - Integration of a payment gateway system
+  - Node JS
+  - Express
+  - Nodemon
 
 ## Dependencies
 
