@@ -42,22 +42,22 @@ const Index = () => {
                 <a href="/directory/search/">Directory</a>
               </li>
               <li>
-                <a href="https://conference.awwwards.com">Conferences</a>
+                <a href="/">Conferences</a>
               </li>
             </ul>
             <ul className="footer__menu">
               <li>
-                <a rel="nofollow" href="/faqs/">
+                <a rel="/" href="/faqs/">
                   FAQs
                 </a>
               </li>
               <li>
-                <a rel="nofollow" href="/about-us/">
+                <a rel="/" href="/about-us/">
                   About Us
                 </a>
               </li>
               <li>
-                <a rel="nofollow" href="/contact-us/">
+                <a rel="/" href="/contact-us/">
                   Contact Us
                 </a>
               </li>
@@ -74,17 +74,17 @@ const Index = () => {
         <div className="footer__left">
           <ul className="footer__nav">
             <li>
-              <a rel="nofollow" href="/cookies-policy/">
+              <a rel="nofollow" href="/">
                 Cookies Policy
               </a>
             </li>
             <li>
-              <a rel="nofollow" href="/terms/">
+              <a rel="nofollow" href="/">
                 Legal Terms
               </a>
             </li>
             <li>
-              <a rel="nofollow" href="/privacy-policy/">
+              <a rel="nofollow" href="/">
                 Privacy Policy
               </a>
             </li>
@@ -96,25 +96,25 @@ const Index = () => {
               <strong>Connect:</strong>
             </li>
             <li>
-              <a href="https://www.instagram.com/awwwards">Instagram</a>
+              <a href="https://www.instagram.com">Instagram</a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/company/awwwards">LinkedIn</a>
+              <a href="https://www.linkedin.com">LinkedIn</a>
             </li>
             <li>
-              <a href="https://twitter.com/awwwards">Twitter</a>
+              <a href="https://twitter.com">Twitter</a>
             </li>
             <li>
-              <a href="https://www.facebook.com/awwwards">Facebook</a>
+              <a href="https://www.facebook.com">Facebook</a>
             </li>
             <li>
-              <a href="https://www.youtube.com/awwwardstv">YouTube</a>
+              <a href="https://www.youtube.com">YouTube</a>
             </li>
             <li>
-              <a href="https://www.tiktok.com/@awwwards.com">TikTok</a>
+              <a href="https://www.tiktok.com">TikTok</a>
             </li>
             <li>
-              <a href="https://www.pinterest.es/awwwards/">Pinterest</a>
+              <a href="https://www.pinterest.es">Pinterest</a>
             </li>
           </ul>
         </div>
