@@ -1,3 +1,19 @@
+.css-q9jv7 {
+  display:grid;
+  grid-template-rows:repeat(3, 1fr);
+  row-gap:2.66667rem;
+}
+@media (min-width:780px) {
+  .css-q9jv7 {
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows:1fr;
+    row-gap:0;
+    -webkit-column-gap:2.66667rem;
+    column-gap:2.66667rem;
+  }
+}
+
+
 .css-opq0ff {
     display:-webkit-box;
     display:-webkit-flex;
@@ -188,6 +204,9 @@
   .feature-product-img-size {
     height: 300px;
     object-fit: contain;
+  }
+  .feature-product-bg-color{
+    background-color: #f6f9f9;
   }
   
   

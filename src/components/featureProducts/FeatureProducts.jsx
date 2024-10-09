@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, selectAllProducts } from '../../store/slices/productsSlice';
-import './featureProducts.css';
+import { addItemToCart } from '../../store/slices/cartSlice';
+import '../featureProducts/featureProducts.css';
 import SkeletonLoader from '../featureProductLoader/Index'; // Assuming this is your loader component
 
 const FeatureProducts = () => {
@@ -25,6 +26,11 @@ const FeatureProducts = () => {
     return title;
   };
 
+  // Function to handle adding product to cart
+  const handleAddToCart = (product) => {
+    dispatch(addItemToCart(product)); // Dispatch the full product object to add it to the cart
+  };
+
   return (
     <div className="css-opq0ff exi01cl0 pb-4">
       <div className="section-layout-heading">
@@ -32,14 +38,16 @@ const FeatureProducts = () => {
           <h1 className="section_title">Shop</h1>
         </div>
       </div>
-      <div className="css-q9jv7 enr55ux0">
-        {productStatus === 'loading' ? ( // Using a ternary operator
-          <div className="loader">
+      <div className="css-q9jv7 row enr55ux0">
+        {productStatus === 'loading' ? (
+          <div className="loader d-flex">
+            <SkeletonLoader />
+            <SkeletonLoader />
             <SkeletonLoader />
           </div>
         ) : (
           limitedProducts.map((product) => (
-            <div key={product.id} className="css-1ath97b enr55ux1 feature-product-size">
+            <div key={product.id} className="css-1ath97b enr55ux1 border-info rounded p-4 feature-product-bg-color feature-product-size">
               <a
                 className="shop-preview_link"
                 aria-label={`Shop for ${product.title}`}
@@ -49,7 +57,15 @@ const FeatureProducts = () => {
                   <img src={product.image} className='feature-product-img-size' alt={product.title} />
                 </div>
                 <h3 className="shop-preview_title">{truncateTitle(product.title, 20)}</h3>
-                <span className="shop-preview_subLink">Shop now</span>
+                <span
+                  className="shop-preview_subLink"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAddToCart(product); // Dispatch the full product object to the cart
+                  }}
+                >
+                  Shop now
+                </span>
               </a>
             </div>
           ))
