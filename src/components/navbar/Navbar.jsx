@@ -72,7 +72,7 @@ const Navbar = () => {
       </div>
       <div className="navigation-logo">
         <a aria-label="LARQ Homepage" href="/">
-          <h1 className='josefin-sans text-decoration-none'>Veloz</h1>
+          <h1 className='josefin-sans brand-logo-text text-decoration-none'>Veloz</h1>
         </a>
       </div>
       <div className="navigation-mobile-account-cart">
@@ -116,7 +116,7 @@ const Navbar = () => {
               <a href="/technology">Technology</a>
             </li>
             <li className="text-decoration-none">
-              <a href="/water-quality">Water quality</a>
+              <a href="checkout">Checkout</a>
             </li>
             <li className="icon-item account-item">
               <a className="navigation-account" href="/user/sign-in">
@@ -137,7 +137,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="icon-item">
-              <button
+              <a href="/cart"><button 
                 className="navigation-cart"
                 aria-label="Open cart slide out"
               >
@@ -155,7 +155,7 @@ const Navbar = () => {
                     fill="#153A5B"
                   />
                 </svg>
-              </button>
+              </button></a>
             </li>
           </ul>
         </nav>

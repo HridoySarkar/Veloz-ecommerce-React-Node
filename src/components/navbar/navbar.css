@@ -811,4 +811,12 @@ article, aside, footer, header, nav, section, figcaption, figure, main {
       transform: rotate(360deg);
     }
   }
-  
+
+
+
+  .brand-logo-text:hover{
+      text-decoration: none !important;
+  }
+  a:hover{
+    text-decoration: none !important;
+  }

@@ -1,78 +1,79 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts, selectAllProducts } from '../../store/slices/productsSlice';
-import { addItemToCart } from '../../store/slices/cartSlice';
 import '../featureProducts/featureProducts.css';
-import SkeletonLoader from '../featureProductLoader/Index'; // Assuming this is your loader component
+import ProductCard from '../ProductCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../app/pages/home/store/homeSlice';
+import { cartSclice } from '../../store/slices/cartSlice';
+
 
 const FeatureProducts = () => {
-  const dispatch = useDispatch();
-  const products = useSelector(selectAllProducts);
-  const productStatus = useSelector((state) => state.products.status);
+    const { products, status } = useSelector((state) => state.homeSlice);
+    const cartState = useSelector((state)=>state.cartSclice)
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (productStatus === 'idle') {
-      dispatch(fetchProducts());
-    }
-  }, [productStatus, dispatch]);
 
-  const limitedProducts = products.slice(0, 6); // Limit to 6 products
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch]);
 
-  // Function to truncate the title
-  const truncateTitle = (title, maxLength) => {
-    if (title.length > maxLength) {
-      return title.slice(0, maxLength) + '.'; // Add ellipsis if truncated
-    }
-    return title;
-  };
+    console.log(status);  // Check the loading/error status
+    console.log(products); // Check the products array
 
-  // Function to handle adding product to cart
-  const handleAddToCart = (product) => {
-    dispatch(addItemToCart(product)); // Dispatch the full product object to add it to the cart
-  };
-
-  return (
-    <div className="css-opq0ff exi01cl0 pb-4">
-      <div className="section-layout-heading">
-        <div className="section-layout-heading-text">
-          <h1 className="section_title">Shop</h1>
-        </div>
-      </div>
-      <div className="css-q9jv7 row enr55ux0">
-        {productStatus === 'loading' ? (
-          <div className="loader d-flex">
-            <SkeletonLoader />
-            <SkeletonLoader />
-            <SkeletonLoader />
-          </div>
-        ) : (
-          limitedProducts.map((product) => (
-            <div key={product.id} className="css-1ath97b enr55ux1 border-info rounded p-4 feature-product-bg-color feature-product-size">
-              <a
-                className="shop-preview_link"
-                aria-label={`Shop for ${product.title}`}
-                href={`/product/${product.id}`}
-              >
-                <div className="shop-preview_image">
-                  <img src={product.image} className='feature-product-img-size' alt={product.title} />
+    return (
+        <div className="css-opq0ff exi01cl0 pb-4">
+            <div className="section-layout-heading">
+                <div className="section-layout-heading-text">
+                    <h1 className="section_title">Shop</h1>
                 </div>
-                <h3 className="shop-preview_title">{truncateTitle(product.title, 20)}</h3>
-                <span
-                  className="shop-preview_subLink"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleAddToCart(product); // Dispatch the full product object to the cart
-                  }}
-                >
-                  Shop now
-                </span>
-              </a>
             </div>
-          ))
-        )}
-      </div>
-    </div>
-  );
+            <div className="col-md-12 d-flex">
+                <div className="css-q9jv7 enr55ux0">
+                    {status === 'loading' && <p>Loading...</p>}
+                    {status === 'failed' && <p>Error loading products</p>}
+                    {products.length > 0 ? (
+                        products.slice(0,9).map((product) => (
+                            <ProductCard key={product.id} product={product} />
+                        ))
+                    ) : (
+                        <p>No products available</p>
+                    )}
+                </div>
+                <div className="col-md-4">
+                    <ul>
+                        {
+                            cartState.carts.map(i=>{
+                                return(
+                                    <li key={i.id}>
+                                        <div>
+                                            <h5>
+                                                
+                                            {i.title}
+                                            </h5>
+                                        </div>
+                                        <div>
+                                            {i.price} x 
+                                            <input className='px-1' type="number" 
+                                            onChange={(e)=>{
+                                                let value = e.target.value
+                                                dispatch(cartSclice.actions.update_cart({
+                                                    qty: value,
+                                                    product:i,
+                                                }))
+                                                
+                                            }}
+                                            value={i.qty} min="1" />
+                                            
+                                            = {i.qty * i.price}
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default FeatureProducts;

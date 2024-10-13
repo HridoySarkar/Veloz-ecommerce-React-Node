@@ -9,15 +9,9 @@ import Footer from '../../../components/footer/Index'
 const Index = () => {
     return (
         <main className='page-width'>
-            <Navbar/>
             <HeroBanner/>
             <FeatureProducts/>
             <CampBanner />
-
-
-
-            {/* Footer */}
-            <Footer/>
         </main>
     );
 };
