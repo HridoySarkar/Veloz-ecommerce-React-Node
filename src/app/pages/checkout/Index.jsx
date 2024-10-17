@@ -1,13 +1,22 @@
 import React from 'react'
-import Navbar from '../../../components/navbar/Navbar';
-import Footer from '../../../components/footer/Index';
 
-
-const Index = ()=> {
+const Index = () => {
   return (
-      <>
-        <div>Checkout</div>
-      </>
+    <>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8">
+            <h1>Checkout</h1>
+            <div className="checkout-info">
+              
+            </div>
+          </div>
+          <div className="col-lg-4">
+            
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
