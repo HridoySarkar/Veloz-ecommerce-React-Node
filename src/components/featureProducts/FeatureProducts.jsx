@@ -38,39 +38,7 @@ const FeatureProducts = () => {
                         <p>No products available</p>
                     )}
                 </div>
-                <div className="col-md-4">
-                    <ul>
-                        {
-                            cartState.carts.map(i=>{
-                                return(
-                                    <li key={i.id}>
-                                        <div>
-                                            <h5>
-                                                
-                                            {i.title}
-                                            </h5>
-                                        </div>
-                                        <div>
-                                            {i.price} x 
-                                            <input className='px-1' type="number" 
-                                            onChange={(e)=>{
-                                                let value = e.target.value
-                                                dispatch(cartSclice.actions.update_cart({
-                                                    qty: value,
-                                                    product:i,
-                                                }))
-                                                
-                                            }}
-                                            value={i.qty} min="1" />
-                                            
-                                            = {i.qty * i.price}
-                                        </div>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+                
             </div>
         </div>
     );
