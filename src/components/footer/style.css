@@ -8334,7 +8334,7 @@ textarea.text-input{
     justify-content:space-between;
     align-items:flex-end;
     flex-wrap:wrap;
-    margin-bottom:40px;
+    padding-bottom:40px;
     padding-top:clamp(24px,3vw,48px);
     font-size:14px;
     font-weight:400;

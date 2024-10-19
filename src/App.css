@@ -48,3 +48,19 @@
   font-weight: 500;
   font-style: normal;
 }
+
+
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+ul > li> a{
+  font-family: "Afacad Flux", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+li > button{
+  font-family: "Afacad Flux", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
