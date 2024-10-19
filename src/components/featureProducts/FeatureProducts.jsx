@@ -16,9 +16,6 @@ const FeatureProducts = () => {
         dispatch(getProducts());
     }, [dispatch]);
 
-    console.log(status);  // Check the loading/error status
-    console.log(products); // Check the products array
-
     return (
         <div className="css-opq0ff exi01cl0 pb-4">
             <div className="section-layout-heading">

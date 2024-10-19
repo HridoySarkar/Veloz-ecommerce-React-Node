@@ -5,7 +5,6 @@ export const getProducts = createAsyncThunk(
     async () => {
         const response = await fetch('https://fakestoreapi.com/products');
         let allProducts = await response.json();
-        console.log(allProducts);  // Check the API response
         return allProducts;   // Ensure this matches the correct path
     }
 );

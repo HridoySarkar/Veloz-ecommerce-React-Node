@@ -1,10 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { cartSclice } from '../../store/slices/cartSlice';
+import { cartSlice } from '../../store/slices/cartSlice';
 
 const AddToCartButton = ({ product }) => {  // Destructure product
   let dispatch = useDispatch();
-  console.log("its",cartSclice);
   
 
   return (
@@ -13,7 +12,7 @@ const AddToCartButton = ({ product }) => {  // Destructure product
         type='button'
         onClick={(e) => {
           e.preventDefault();
-          dispatch(cartSclice.actions.add_to_cart(product))
+          dispatch(cartSlice.actions.add_to_cart(product))
           window.s_alert(`${product.title} add to cart`, "success");  // Show product title in alert
         }}
         className="shop-preview_subLink"
