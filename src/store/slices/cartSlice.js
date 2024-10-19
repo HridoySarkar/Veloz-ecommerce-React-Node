@@ -44,16 +44,20 @@ export const cartSlice = createSlice({
             
         },
 
-        set_default_carts: (state) =>{
+        set_default_carts: (state) => {
             try {
-                let carts_els = JSON.parse(localStorage.getItem('carts'))
-                state.carts = carts_els
-                
+                let carts_els = JSON.parse(localStorage.getItem('carts'));
+                if (carts_els && Array.isArray(carts_els)) {
+                    state.carts = carts_els;
+                } else {
+                    state.carts = []; // Set to empty array if nothing is in localStorage
+                }
             } catch (error) {
-                
+                state.carts = []; // Handle JSON parsing errors and default to an empty array
             }
-            cartSlice.caseReducers.save_cart_Data(state)
+            cartSlice.caseReducers.save_cart_Data(state);
         },
+        
 
     }
 })

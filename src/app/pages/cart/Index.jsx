@@ -73,7 +73,9 @@ const Index = () => {
               ) : (
                 // If the cart is empty, show a message
                 <tr>
-                  <td colSpan="4">Your cart is empty</td>
+                  <td colSpan="4">Your cart is empty <span><button className="btn btn-dark">
+                        <a href="/" className="text-white">shop now</a>
+                    </button></span></td>
                 </tr>
               )}
             </tbody>
