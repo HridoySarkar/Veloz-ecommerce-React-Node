@@ -1,9 +1,15 @@
-import React from 'react';
-import '../navbar/navbar.css';
+import React,{useEffect} from "react";
+import "../navbar/navbar.css";
+import { useSelector } from "react-redux";
+import { cartSlice } from "../../store/slices/cartSlice";
 
 const Navbar = () => {
-  return (
+  let cartstate = useSelector((state) => state.cartSlice);
 
+  useEffect(() => {
+  }, [cartstate.carts]);
+
+  return (
     <>
       <section className="css-1iu2kf2 epn6cc50">
         <div className="navigation-head-skinny-wrap">
@@ -53,7 +59,12 @@ const Navbar = () => {
                     </button>
                   </li>
                   <li>
-                    <button className="" aria-label="Home" tabIndex={0} role="button">
+                    <button
+                      className=""
+                      aria-label="Home"
+                      tabIndex={0}
+                      role="button"
+                    >
                       Home
                     </button>
                   </li>
@@ -72,7 +83,9 @@ const Navbar = () => {
             </div>
             <div className="navigation-logo">
               <a aria-label="LARQ Homepage" href="/">
-                <h1 className='josefin-sans brand-logo-text text-decoration-none'>Veloz</h1>
+                <h1 className="josefin-sans brand-logo-text text-decoration-none">
+                  Veloz
+                </h1>
               </a>
             </div>
             <div className="navigation-mobile-account-cart">
@@ -92,7 +105,10 @@ const Navbar = () => {
                   />
                 </svg>
               </a>
-              <button className="navigation-cart" aria-label="Open cart slide out">
+              <button
+                className="navigation-cart"
+                aria-label="Open cart slide out"
+              >
                 <a href="/cart">
                   <svg
                     width={40}
@@ -139,38 +155,38 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li className="icon-item">
-                    <a href="/cart"><button
-                      className="navigation-cart"
-                      aria-label="Open cart slide out"
-                    >
-                      <svg
-                        width={40}
-                        height={40}
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        role="img"
+                    <a href="/cart">
+                      <button
+                        className="navigation-cart"
+                        aria-label="Open cart slide out"
                       >
-                        <path
-                          opacity="0.64"
-                          d="M11.75 12H13.1562C13.8438 12 14.4688 12.4062 14.75 13H27.5938C28.4062 13 29 13.7812 28.7812 14.5938L27.5 19.3438C27.25 20.3438 26.3438 21 25.3438 21H16.3125L16.5 21.9062C16.5625 22.25 16.875 22.5 17.2188 22.5H26.25C26.6562 22.5 27 22.8438 27 23.25C27 23.6875 26.6562 24 26.25 24H17.2188C16.1562 24 15.2188 23.25 15.0312 22.1875L13.4062 13.7188C13.375 13.5938 13.2812 13.5 13.1562 13.5H11.75C11.3125 13.5 11 13.1875 11 12.75C11 12.3438 11.3125 12 11.75 12ZM15.0938 14.5L16.0312 19.5H25.3438C25.6875 19.5 25.9688 19.2812 26.0625 18.9688L27.25 14.5H15.0938ZM16.5 28C15.9375 28 15.4688 27.7188 15.1875 27.25C14.9062 26.8125 14.9062 26.2188 15.1875 25.75C15.4688 25.3125 15.9375 25 16.5 25C17.0312 25 17.5 25.3125 17.7812 25.75C18.0625 26.2188 18.0625 26.8125 17.7812 27.25C17.5 27.7188 17.0312 28 16.5 28ZM27 26.5C27 27.0625 26.6875 27.5312 26.25 27.8125C25.7812 28.0938 25.1875 28.0938 24.75 27.8125C24.2812 27.5312 24 27.0625 24 26.5C24 25.9688 24.2812 25.5 24.75 25.2188C25.1875 24.9375 25.7812 24.9375 26.25 25.2188C26.6875 25.5 27 25.9688 27 26.5Z"
-                          fill="#153A5B"
-                        />
-                      </svg>
-                    </button></a>
+                        <svg
+                          width={40}
+                          height={40}
+                          viewBox="0 0 40 40"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          role="img"
+                        >
+                          <path
+                            opacity="0.64"
+                            d="M11.75 12H13.1562C13.8438 12 14.4688 12.4062 14.75 13H27.5938C28.4062 13 29 13.7812 28.7812 14.5938L27.5 19.3438C27.25 20.3438 26.3438 21 25.3438 21H16.3125L16.5 21.9062C16.5625 22.25 16.875 22.5 17.2188 22.5H26.25C26.6562 22.5 27 22.8438 27 23.25C27 23.6875 26.6562 24 26.25 24H17.2188C16.1562 24 15.2188 23.25 15.0312 22.1875L13.4062 13.7188C13.375 13.5938 13.2812 13.5 13.1562 13.5H11.75C11.3125 13.5 11 13.1875 11 12.75C11 12.3438 11.3125 12 11.75 12ZM15.0938 14.5L16.0312 19.5H25.3438C25.6875 19.5 25.9688 19.2812 26.0625 18.9688L27.25 14.5H15.0938ZM16.5 28C15.9375 28 15.4688 27.7188 15.1875 27.25C14.9062 26.8125 14.9062 26.2188 15.1875 25.75C15.4688 25.3125 15.9375 25 16.5 25C17.0312 25 17.5 25.3125 17.7812 25.75C18.0625 26.2188 18.0625 26.8125 17.7812 27.25C17.5 27.7188 17.0312 28 16.5 28ZM27 26.5C27 27.0625 26.6875 27.5312 26.25 27.8125C25.7812 28.0938 25.1875 28.0938 24.75 27.8125C24.2812 27.5312 24 27.0625 24 26.5C24 25.9688 24.2812 25.5 24.75 25.2188C25.1875 24.9375 25.7812 24.9375 26.25 25.2188C26.6875 25.5 27 25.9688 27 26.5Z"
+                            fill="#153A5B"
+                          />
+                        </svg>
+                        {cartstate.carts.length > 0 && (
+                          <span className="cart-indicator">{cartstate.carts.length}</span>
+                        )}
+                      </button>
+                    </a>
                   </li>
                 </ul>
               </nav>
             </div>
           </div>
         </div>
-
       </section>
-
-
     </>
-
-
   );
 };
 
