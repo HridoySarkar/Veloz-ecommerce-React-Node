@@ -5,7 +5,8 @@ import Home from '../app/pages/home/Index';
 import Error from '../layouts/404/errorPage';
 import Cart from '../app/pages/cart/Index';
 import Checkout from "../app/pages/checkout/Index";
-
+import Signup from '../components/user/signup';
+import Login from '../components/user/login';
 // Router configuration
 const router = createBrowserRouter([
     {
@@ -24,6 +25,14 @@ const router = createBrowserRouter([
             {
                 path: "checkout",  // Checkout page
                 element: <Checkout />
+            },
+            {
+                path: "signup",  // Signup page
+                element: <Signup />
+            },
+            {
+                path: "login",  // Login page
+                element: <Login />
             }
         ]
     }

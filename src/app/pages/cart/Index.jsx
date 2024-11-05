@@ -20,7 +20,7 @@ const Index = () => {
 
     const handleAllRemove = () => {
         dispatch(cartSlice.actions.clear_cart());
-        window.s_alert('all products are removed','success');
+        window.s_alert('All products are removed','success');
       };
   
     return (

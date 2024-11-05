@@ -5,6 +5,8 @@ import { cartSlice } from "../../store/slices/cartSlice";
 
 const Navbar = () => {
   let cartstate = useSelector((state) => state.cartSlice);
+  const totalQty = cartstate.carts.reduce((total, item) => total + (item.qty || 0), 0);
+  
 
   useEffect(() => {
   }, [cartstate.carts]);
@@ -137,7 +139,7 @@ const Navbar = () => {
                     <a href="checkout">Checkout</a>
                   </li>
                   <li className="icon-item account-item">
-                    <a className="navigation-account" href="/user/sign-in">
+                    <a className="navigation-account" href="signup">
                       <svg
                         width={40}
                         height={40}
@@ -174,8 +176,8 @@ const Navbar = () => {
                             fill="#153A5B"
                           />
                         </svg>
-                        {cartstate.carts.length > 0 && (
-                          <span className="cart-indicator">{cartstate.carts.length}</span>
+                        {totalQty > 0 && (
+                          <span className="cart-indicator">{totalQty}</span>
                         )}
                       </button>
                     </a>
